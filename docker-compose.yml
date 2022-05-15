@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  myapp:
+    image: gingin3203/myapp:latest
+    container_name: myapp_container
+    build:
+      dockerfile: Dockerfile
+    command: '-database $MYAPP_DB'
+    restart: on-failure
+    ports:
+      - "443:443"
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+  postgres:
+    image: postgres:14.2
+    container_name: postgres
+    ports:
+      - 127.0.0.1:5432:5432
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_USER=user
+      - POSTGRES_DB=movies
+
+  mongodb:
+    image: mongo:5.0.7
+    container_name: mongodb
+    ports:
+      - 127.0.0.1:27017:27017
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
