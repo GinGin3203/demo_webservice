@@ -179,3 +179,4 @@ in other packages, which depend on entities from `movie` and not vice versa.
    the movie repository mock, because it makes writing tests
    easier (you could read more about it in the
    [author's post](https://medium.com/@matryer/meet-moq-easily-mock-interfaces-in-go-476444187d10#.uy9qkloty))
+6. Certificate is self-signed and I'm aware that the private key is exposed; but this is a home assignment :)
