@@ -1,4 +1,4 @@
-# WhiteSource Home Assignment
+# Demo web service
 
 This is a CRUD app for movies.
 
